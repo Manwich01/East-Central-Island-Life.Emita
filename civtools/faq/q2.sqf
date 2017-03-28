@@ -1,0 +1,1 @@
+player groupChat "You can buy your license at the DMV across the street from CIV Spawn.";

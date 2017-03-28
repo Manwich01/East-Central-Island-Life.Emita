@@ -1,0 +1,1 @@
+player groupChat "You must have been playing on our servers for a few days before you can apply to be a cop.";

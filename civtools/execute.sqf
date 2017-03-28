@@ -1,0 +1,1 @@
+[] execVM "civtools\civtoolsmain.sqf";

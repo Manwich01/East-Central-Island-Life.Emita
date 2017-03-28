@@ -1,0 +1,1 @@
+player groupChat "The default speedlimit is 60 in town, and 90 out of town.";

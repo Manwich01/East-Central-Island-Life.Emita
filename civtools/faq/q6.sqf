@@ -1,0 +1,1 @@
+player groupChat "NO! By no means in any situation are you allowed to steal a cop car. You could be banned for doing this!";
