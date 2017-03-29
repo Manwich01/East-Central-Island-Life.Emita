@@ -72,16 +72,3 @@ if (_action == "release") then {
       };
    };
 };
-
-if (_action == "test") then {
-   _ret = false;
-   {
-      if (_x in civarray) then {
-         if (animationState _x != "civillying01") exitWith {
-            _ret = true;
-         };
-      };
-   }forEach(nearestObjects[getPos player,["MAN"],5]);
-   
-   hintSilent format ["Can cop restrain: %1", _ret];
-};
