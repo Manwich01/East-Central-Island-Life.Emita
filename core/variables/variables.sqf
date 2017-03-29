@@ -1,7 +1,7 @@
 //=================================================================================
 INV_smscost		 = 100;
-add_civmoney		 = 1000;
-add_copmoney		 = 1750;
+add_civmoney		 = 1250;
+add_copmoney		 = 2000;
 add_workplace		 = 3000;
 copchoprespawntime       = 120;
 CopWaffenAvailable       = 0;							
@@ -93,7 +93,7 @@ petroluse                = 3;
 maxpetroluse             = 400; 
 oildemand                = 0.25;
 oilsellpricedec          = 30;
-oilbaseprice		 = 15000;
+oilbaseprice		 = 6500;
 //==============================MINING=============================================
 shoveldur=20;
 shovelmax=2;
@@ -103,7 +103,7 @@ hammerdur=100;
 hammermax=4;
 working=false;
 //===============================GANGS=============================================
-gangincome		 = 7500;
+gangincome		 = 3500;
 gangcreatecost		 = 250000;
 gangdeltime		 = 900;
 gangsarray		 = [];
