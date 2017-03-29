@@ -1,6 +1,6 @@
 //Use this for a global list for admin
-execVM "dgaf\functions.sqf";
-waitUntil { !alive player ; !isNull (findDisplay 46)};
+_h = execVM "dgaf\functions.sqf";
+waitUntil {scriptDone _h};
 
 if (player call isPlayerSpecial) then { 
    sleep 10;

@@ -46,7 +46,7 @@ AdminToolsMenu =  [  ["",true],
                   ];
                   
 ToolsMenu = [  ["",true],
-               ["Teleport", [2],  "", -5, [["expression", format[_EXECscript1,"dayzesp.sqf"]]], "1", "1"],
+               ["Teleport", [2],  "", -5, [["expression", format[_EXECscript1,"Teleport.sqf"]]], "1", "1"],
                ["God Mode(relog to disable bugs ui)", [3],  "", -5, [["expression", format[_EXECscript1,"Godmode.sqf"]]], "1", "1"],
                ["Car God", [4],  "", -5, [["expression", format[_EXECscript1,"cargod.sqf"]]], "1", "1"],
                ["Heal Player(s)", [5],  "", -5, [["expression", format[_EXECscript1,"healp.sqf"]]], "1", "1"],

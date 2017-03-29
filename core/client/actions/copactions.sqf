@@ -1,6 +1,42 @@
 //Modified Intellectual Property of TCG
 _role = player;
 
+//TODO: Move this to a more friendly area
+/**
+ * canCopRestrain
+ * Checks to see if the restrain action is possible
+ */
+canCopRestrain = {
+   _ret = false;
+   {
+      if (_x in civarray) then {
+         if ((animationState _x) != "civillying01") exitWith {
+            _ret = true;
+         };
+      };
+   }forEach(nearestObjects[getPos player,["MAN"],5]);
+   
+   _ret
+};
+/**
+ * canCopRestrain
+ * Checks to see if the restrain action is possible for cops
+ */
+canCopRestrainCop = {
+   _ret = false;
+   {
+      if (_x in coparray) then {
+         if (_x != player) then {
+            if ((animationState _x) != "civillying01") exitWith {
+               _ret = (player == cop1);
+            };
+         };
+      };
+   }forEach(nearestObjects[getPos player,["MAN"],5]);
+   
+   _ret
+};
+
 //=======================   ADMIN CAMERA ==============================================
 action12 = _role addaction ["Admin Spectate","tcgcode.sqf",[1],1,false,true,"","player distance rubblepile <= 3"];
 //=====================================Elevator==============================================
@@ -38,10 +74,12 @@ action37 = _role addaction ["Remove ladder","core\global\noscript.sqf",'if (((ca
 action38 = _role addaction ["Remove Road Barrier","core\global\noscript.sqf",'if (((call INV_GetOwnWeight) + ("Land_RedWhiteBarrier" call INV_getitemTypeKg)) > INV_Tragfaehigkeit)exitwith{player groupChat localize "STRS_inv_buyitems_maxgewicht"};deletevehicle (nearestobjects [getpos player, ["Land_RedWhiteBarrier"],  3] select 0);["Land_RedWhiteBarrier", 1] call INV_AddInvItem;player groupchat "you picked up a road barrier";',1,true,true,"",'iscop and player distance (nearestobjects [getpos player, ["Land_RedWhiteBarrier"],  3] select 0) < 5'];
 action39 = _role addaction ["Remove Road Barrier","core\global\noscript.sqf",'if (((call INV_GetOwnWeight) + ("Roadbarrier_long" call INV_getitemTypeKg)) > INV_Tragfaehigkeit)exitwith{player groupChat localize "STRS_inv_buyitems_maxgewicht"};deletevehicle (nearestobjects [getpos player, ["RoadBarrier_long"],  3] select 0);["RoadBarrier_long", 1] call INV_AddInvItem;player groupchat "you picked up a road barrier";',1,true,true,"",'iscop and player distance (nearestobjects [getpos player, ["RoadBarrier_long"],  3] select 0) < 5'];
 action40 = _role addaction ["Remove Road Barrier","core\global\noscript.sqf",'if (((call INV_GetOwnWeight) + ("RoadBarrier_light" call INV_getitemTypeKg)) > INV_Tragfaehigkeit)exitwith{player groupChat localize "STRS_inv_buyitems_maxgewicht"};deletevehicle (nearestobjects [getpos player, ["RoadBarrier_light"],  3] select 0);["RoadBarrier_light", 1] call INV_AddInvItem;player groupchat "you picked up a road barrier";',1,true,true,"",'iscop and player distance (nearestobjects [getpos player, ["RoadBarrier_light"],  3] select 0) < 5'];
-action41 = _role addaction ["Restrain Cop","core\client\restraincop.sqf",[],1,true,true,"","player == cop1"];
 action42 = _role addaction ["Put Cop in Car","core\client\preArrestcop.sqf",[],1,true,true,"",'_vcl = (nearestobjects [getpos player, ["Air", "Ship", "LandVehicle"], 3] select 0);player distance _vcl < 5 and _vcl in INV_ServerVclArray and player == cop1'];
 action43 = _role addaction ["Arrest Cop","core\client\arrestcop.sqf",[],1,true,true,"","player == cop1"];
 action46 = _role addaction ["Cleanup Bodybag","core\global\noscript.sqf",'deletevehicle (nearestobjects [getpos player, ["body"],  3] select 0);["geld", 1000] call INV_AddInvItem;player groupchat "You removed a bodybag and have received a cash reward for doing so";',1,true,true,"",'player distance (nearestobjects [getpos player, ["body"],  3] select 0) < 5'];
+// New Actions
+action41 = _role addAction ["Restrain Cop", "core\client\restrain.sqf", "restrainCop", 1, true, true, "", "call canCopRestrainCop"];
+action47 = _role addAction ["Restrain", "core\client\restrain.sqf", "restrain", 1, true, true, "", "call canCopRestrain"];
 //================================== COP CHIEF ELECTION ===============================================
 action44 = _role addaction ["Elect a Chief","core\client\maindialogs.sqf",["chief"],1,false,true,"","player distance rathaus <= 3 and iscop"];
 //==================================== MAYOR ELECTION =================================================
