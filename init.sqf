@@ -22,7 +22,8 @@ execVM "briefing.sqf";
 waitUntil { (((time > 1) && (alive player)) || (isServer)) };
 
 // Island Life Initialization
-execVM "core\init.sqf";
+_h = execVM "core\init.sqf";
+waitUntil{scriptDone _h};
 
 //Other Initializations
 call compile preProcessFile "Scripts\triggers.sqf";
