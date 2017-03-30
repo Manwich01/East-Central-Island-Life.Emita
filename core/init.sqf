@@ -8,6 +8,9 @@
 //Variables/Functions//
 ///////////////////////
 
+//Definition of Actions
+actionList = [];
+
 //HOTFIX For Respawn
 JIP_Stats_Ready = false;
 

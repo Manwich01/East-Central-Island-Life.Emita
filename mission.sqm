@@ -3949,6 +3949,7 @@ class Mission
 					player="PLAY CDG";
 					leader=1;
 					skill=0.60000002;
+					text="Cop17";
 					init="removeallweapons this;this setpos [getpos this select 0, getpos this select 1, (getpos this select 2)];this setVariable [""isTazed"",false,true]; this addEventHandler [""HandleDamage"",{_this call DDOPP_taser_handleHit}];";
 					description="Cop17 Sheriff's Deputy Supervisor (ECSD Training Required)";
 				};
@@ -4001,7 +4002,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=11310;
+		items=11311;
 		class Item0
 		{
 			position[]={1850.4058,4.1295543,644.14545};
@@ -116087,7 +116088,6 @@ class Mission
 			vehicle="F430_Scuderia";
 			leader=1;
 			skill=0.60000002;
-			description="Cop17 Sheriff's Deputy (Training Required)";
 		};
 		class Item11307
 		{
@@ -116098,7 +116098,6 @@ class Mission
 			vehicle="CL_PORSCHE_997";
 			leader=1;
 			skill=0.60000002;
-			description="Cop17 Sheriff's Deputy (Training Required)";
 		};
 		class Item11308
 		{
@@ -116122,7 +116121,17 @@ class Mission
 			vehicle="challenger_black";
 			leader=1;
 			skill=0.60000002;
-			description="Cop17 Sheriff's Deputy (Training Required)";
+		};
+		class Item11310
+		{
+			position[]={2049.2935,0,4445.6289};
+			azimut=-90;
+			id=11480;
+			side="EMPTY";
+			vehicle="il_bank_carpark";
+			skill=1;
+			text="carpark1";
+			init="this allowDamage false; this setPos (this modelToWorld [0, 0, -4.4]);";
 		};
 	};
 	class Markers

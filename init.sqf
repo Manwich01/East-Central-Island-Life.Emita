@@ -12,7 +12,6 @@ enableSaving [false, false];
 version        	= "4.0";
 debug          	= false;
 dedicatedServer = false;
-copscount      	= 16;
 civscount      	= 42;
 playercount    	= 58;
 debugarray     	= [];
@@ -23,7 +22,8 @@ execVM "briefing.sqf";
 waitUntil { (((time > 1) && (alive player)) || (isServer)) };
 
 // Island Life Initialization
-execVM "core\init.sqf";
+_h = execVM "core\init.sqf";
+waitUntil{scriptDone _h};
 
 //Other Initializations
 call compile preProcessFile "Scripts\triggers.sqf";
