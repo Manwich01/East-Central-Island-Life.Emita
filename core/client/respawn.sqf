@@ -141,14 +141,12 @@ if (iscop) then
 	deleteVehicle role;	
 	isdead = 0; 
    _civnum = player;
-	if (_civnum == cop8) then {player setPos getPos deputyspawn;};
-	if (_civnum == cop9) then {player setPos getPos deputyspawn;};
-	if (_civnum == cop14) then {player setPos getPos ucspawn;};
-	if (_civnum == cop15) then {player setPos getPos ucspawn;};
-	if (_civnum == cop16) then {player setPos getPos ucspawn;};
-   if (_civnum == cop17) then {player setPos getPos ucspawn;};
-   if (_civnum == cop18) then {player setPos getPos ucspawn;};
-   if (_civnum == cop19) then {player setPos getPos ucspawn;};
+   // These are the sheriffs/deputies. They should not go to respawn_west.
+   // They will go to deputyspawn.
+	if (_civnum == cop16) then {player setPos getPos deputyspawn;};
+   if (_civnum == cop17) then {player setPos getPos deputyspawn;};
+   if (_civnum == cop18) then {player setPos getPos deputyspawn;};
+   if (_civnum == cop19) then {player setPos getPos deputyspawn;};
 };
 INV_Tragfaehigkeit = 60;
 ["handy", 1] call INV_AddInvItem;
