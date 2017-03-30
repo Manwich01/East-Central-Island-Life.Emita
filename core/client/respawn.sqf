@@ -146,6 +146,9 @@ if (iscop) then
 	if (_civnum == cop14) then {player setPos getPos ucspawn;};
 	if (_civnum == cop15) then {player setPos getPos ucspawn;};
 	if (_civnum == cop16) then {player setPos getPos ucspawn;};
+   if (_civnum == cop17) then {player setPos getPos ucspawn;};
+   if (_civnum == cop18) then {player setPos getPos ucspawn;};
+   if (_civnum == cop19) then {player setPos getPos ucspawn;};
 };
 INV_Tragfaehigkeit = 60;
 ["handy", 1] call INV_AddInvItem;

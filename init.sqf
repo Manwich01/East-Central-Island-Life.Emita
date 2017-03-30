@@ -12,7 +12,6 @@ enableSaving [false, false];
 version        	= "4.0";
 debug          	= false;
 dedicatedServer = false;
-copscount      	= 16;
 civscount      	= 42;
 playercount    	= 58;
 debugarray     	= [];
