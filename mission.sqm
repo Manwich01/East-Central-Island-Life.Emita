@@ -267,7 +267,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=183;
+		items=187;
 		class Item0
 		{
 			side="LOGIC";
@@ -3996,6 +3996,88 @@ class Mission
 					text="Cop19";
 					init="removeallweapons this; this setpos [getpos this select 0, getpos this select 1, (getpos this select 2)+1];  this setVariable [""isTazed"",false,true]; this addEventHandler [""HandleDamage"",{_this call DDOPP_taser_handleHit}];";
 					description="Cop19 Sheriff's Deputy (ECSD Training Required)";
+				};
+			};
+		};
+		class Item183
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={2047.8804,4.1295543,4432.0464};
+					azimut=2.13271;
+					special="NONE";
+					id=11494;
+					side="WEST";
+					vehicle="vilas_sira_policeman";
+					leader=1;
+					skill=0.60000002;
+					text="carSave";
+					init="this disableAI ""anim"";this disableAI ""move""; removeallweapons this;this allowdamage false; this setpos [getpos this select 0, getpos this select 1, (getpos this select 2)+.1];";
+				};
+			};
+		};
+		class Item184
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={2044.7458,4.1295543,4437.8555};
+					azimut=90;
+					id=11495;
+					side="LOGIC";
+					vehicle="Logic";
+					leader=1;
+					skill=0.60000002;
+					text="civCarRespawn";
+				};
+			};
+		};
+		class Item185
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={1207.5837,4.1295543,4711.3486};
+					azimut=2.13271;
+					special="NONE";
+					id=11496;
+					side="WEST";
+					vehicle="vilas_sira_policeman";
+					leader=1;
+					skill=0.60000002;
+					text="carSave1";
+					init="this disableAI ""anim"";this disableAI ""move""; removeallweapons this;this allowdamage false; this setpos [getpos this select 0, getpos this select 1, (getpos this select 2)+.1];";
+				};
+			};
+		};
+		class Item186
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={1358.8563,8,3001.0654};
+					azimut=79.310905;
+					special="NONE";
+					id=11497;
+					side="WEST";
+					vehicle="vilas_sira_policeman";
+					leader=1;
+					skill=0.60000002;
+					text="carSave2";
+					init="this disableAI ""anim"";this disableAI ""move""; removeallweapons this;this allowdamage false; this setpos [getpos this select 0, getpos this select 1, (getpos this select 2)+.1];";
 				};
 			};
 		};
@@ -116130,7 +116212,6 @@ class Mission
 			side="EMPTY";
 			vehicle="il_bank_carpark";
 			skill=1;
-			text="carpark1";
 			init="this allowDamage false; this setPos (this modelToWorld [0, 0, -4.4]);";
 		};
 	};

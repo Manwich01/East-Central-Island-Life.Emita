@@ -9,7 +9,7 @@ INV_inactive_vcl_maxtime   = 60;
 
 INV_VehicleGaragen = [
    //TODO: Missing mission.sqm
-   [carpark1, 30],
+   //[carpark1, 30],
    //[carpark2, 50],
    //[carpark3, 50],
    [boatdocks, 100]

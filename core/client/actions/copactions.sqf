@@ -182,6 +182,15 @@ actionList set [count actionList, _tempAction];
 //_tempAction set [count actionList, _tempAction];
 //action251 = _role addaction ["Close Jail Door","core\client\jaildoor.sqf",["close"],1,false,true,"",'(iscop) and (player distance jaild < 3) and (policehq animationPhase "jdoor" >= 0.5)'];
 //_tempAction set [count actionList, _tempAction];
+//========================= Vehicle Save ========================================
+_tempAction = _role addaction ["Store Vehicle", "core\client\vehicleSave.sqf", [], 1, false, true, "", "player distance carSave1 <= 5"];
+actionList set [count actionList, _tempAction];
+_tempAction = _role addaction ["Retrieve Vehicle", "core\client\vehicleRetrieve.sqf", [ccarspawn, carSave1], 1, false, true, "", "player distance carSave1 <= 5"];
+actionList set [count actionList, _tempAction];
+_tempAction = _role addaction ["Store Vehicle", "core\client\vehicleSave.sqf", [], 1, false, true, "", "player distance carSave2 <= 5"];
+actionList set [count actionList, _tempAction];
+_tempAction = _role addaction ["Retrieve Vehicle", "core\client\vehicleRetrieve.sqf", [ccarspawn1, carSave2], 1, false, true, "", "player distance carSave2 <= 5"];
+actionList set [count actionList, _tempAction];
 //======================================== Donate shop===================================================
 _num15 = (donatebuy1 call INV_getshopnum);
 _tempAction = _role addaction ["Donator Shop","core\client\shopdialogs.sqf",[_num15],1,false,true,"","player distance donatebuy1 <= 5"];

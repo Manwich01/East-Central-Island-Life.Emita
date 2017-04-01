@@ -128,6 +128,11 @@ _tempAction = _role addaction ["Repair vehicle","core\global\noscript.sqf",'_vcl
 actionList set [count actionList, _tempAction];
 //_tempAction = _role addaction ["Start CPR","core\global\noscript.sqf",'_vcl = (nearestobjects [getpos player, ["Man"], 3] select 1);[_vcl] execVM "cpr.sqf";',1,true,true,"",'_vcl = (nearestobjects [getpos player, ["Man"], 3] select 1);player distance _vcl < 2'];
 //actionList set [count actionList, _tempAction];
+//========================= Vehicle Save ========================================
+_tempAction = _role addaction ["Store Vehicle", "core\client\vehicleSave.sqf", [], 1, false, true, "", "player distance carSave <= 5"];
+actionList set [count actionList, _tempAction];
+_tempAction = _role addaction ["Retrieve Vehicle", "core\client\vehicleRetrieve.sqf", [civCarRespawn, carSave], 1, false, true, "", "player distance carSave <= 5"];
+actionList set [count actionList, _tempAction];
 //======================================== Donate shop===================================================
 _num15 = (donatebuy1 call INV_getshopnum);
 _tempAction = _role addaction ["Donator Shop","core\client\shopdialogs.sqf",[_num15],1,false,true,"","player distance donatebuy1 <= 5"];

@@ -23,13 +23,23 @@ while {iscop} do {
       _income = _income + chiefExtraPay;
 	};
    
-   kontostand = kontostand + (round _income);
+   //Expenses
+   _income = round _income;
+   _expenses = ((count copVehicles) * 100);
+   _income = _income - _expenses;
+   //Give the man his money!
+   kontostand = kontostand + _income;	
+   //Notify player
    player groupChat format[localize "STRS_geld_copmoneyadd", rolestring, ((round _income) call ISSE_str_IntToStr)];
+   if ( _expenses > 0) then {
+         player groupChat format["You have to play %1 in expenses. It was deducted from your income.", _expenses];
+   };
    sleep 1;
    
    if (ischief) then {
       player groupchat format["As a Police Chief you get an extra paycheck of $%1.", (chiefExtraPay call ISSE_str_IntToStr)]
    };
+   curIncome = _income;
 };
 
 while {isciv} do {
@@ -53,13 +63,7 @@ while {isciv} do {
          _check = ( round( (random 2)*((BuyAbleBuildingsArray select _i) select 4) ) );
          _income = _income + _check;
 		};
-/*
-      if (timeinworkplace > 0) then {
-         _workplacepaycheck = (round(add_workplace/180*timeinworkplace));
-         _income = _income + _workplacepaycheck;
-         _atworkplacemsg     = localize "STRS_geld_were";	
-      };
-*/		
+	
 		for "_c" from 0 to (count gangsarray - 1) do {
          _gangarray = gangsarray select _c;
          _gangname  = _gangarray select 0;
@@ -84,9 +88,17 @@ while {isciv} do {
 		};			
       
       timeinworkplace = 0;
-      _income = round _income;		
+      _income = round _income;
+      //Expenses
+      _expenses = ((count civVehicles) * 100);
+      _income = _income - _expenses;
+      //Give the man his money!
       kontostand = kontostand + _income;	
-      player groupChat format[localize "STRS_geld_civmoneyadd", rolestring, (_income call ISSE_str_IntToStr)];		
+      //Notify player
+      player groupChat format[localize "STRS_geld_civmoneyadd", rolestring, (_income call ISSE_str_IntToStr)];
+      if ( _expenses > 0) then {
+         player groupChat format["You have to play %1 in expenses. It was deducted from your income.", _expenses];
+      };
       
       if (isMayor) then {
          MayorSteuern = MayorSteuern + INV_SteuernGezahlt;
@@ -102,6 +114,8 @@ while {isciv} do {
       
       MayorSteuern   = 0;																		
       INV_SteuernGezahlt = 0;
+      
+      curIncome = _income;
 	}
 	else 
 	{
