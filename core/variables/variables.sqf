@@ -68,6 +68,13 @@ Processing2 = false;
 Safecracked2 = False;
 Processing3 = false;
 Safecracked3 = False;
+//========== Vehicle Save ==========//
+//By-product of vehicle saves
+curIncome = 0; //Current Income.
+civVehicles = [];
+copVehicles = [];
+retrievedVehicle = objNull;
+isRunning = false;
 //===============MOTD==================
 motdwaittime = 600;
 //===============Cop Patrol==================

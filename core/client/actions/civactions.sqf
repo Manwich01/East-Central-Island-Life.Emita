@@ -229,6 +229,11 @@ actionList set [count actionList, _tempAction];
 //========================   unflip vehicle     ================================
 _tempAction = _role addaction ["Unflip vehicle","core\client\unflipvehicle.sqf",["unflip"],1,false,true,"",'_vcl = (nearestobjects [getpos player, ["Air", "Ship", "LandVehicle"], 3] select 0);player distance _vcl < 5 and _vcl in INV_VehicleArray'];
 actionList set [count actionList, _tempAction];
+//========================= Vehicle Save ========================================
+_tempAction = _role addaction ["Store Vehicle", "core\client\vehicleSave.sqf", [], 1, false, true, "", "player distance carSave <= 5"];
+actionList set [count actionList, _tempAction];
+_tempAction = _role addaction ["Retrieve Vehicle", "core\client\vehicleRetrieve.sqf", [civCarRespawn, carSave], 1, false, true, "", "player distance carSave <= 5"];
+actionList set [count actionList, _tempAction];
 //======================================== Donate shop===================================================
 _num15 = (donatebuy1 call INV_getshopnum);
 _tempAction = _role addaction ["Donator Shop","core\client\shopdialogs.sqf",[_num15],1,false,true,"","player distance donatebuy1 <= 5"];
